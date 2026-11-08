@@ -1,0 +1,1202 @@
+[
+  {
+    "name": "Vector Outpost",
+    "concept": "Linear targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 13,
+      "y": 2.3
+    },
+    "gate": {
+      "x": 5.6899999999999995,
+      "y": 1.569
+    },
+    "boxes": [
+      {
+        "x": 5.569999999999999,
+        "y": 0,
+        "w": 0.24,
+        "h": 0.719
+      }
+    ],
+    "allowed": ["Linear"],
+    "required": ["Linear"],
+    "objective": "Cross the gate at (5.69, 1.57) and hit (13, 2.30) using a linear trajectory.",
+    "hint": "Use rise divided by horizontal distance.",
+    "solution": "0.1*u",
+    "starter": "a*u"
+  },
+  {
+    "name": "Vector Switchback",
+    "concept": "Linear targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 14,
+      "y": 3.6
+    },
+    "gate": {
+      "x": 6.68,
+      "y": 2.136
+    },
+    "boxes": [
+      {
+        "x": 6.56,
+        "y": 2.986,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Linear"],
+    "required": ["Linear"],
+    "objective": "Cross the gate at (6.68, 2.14) and hit (14, 3.60) using a linear trajectory.",
+    "hint": "Use rise divided by horizontal distance.",
+    "solution": "0.2*u",
+    "starter": "a*u"
+  },
+  {
+    "name": "Vector Overhang",
+    "concept": "Linear targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 15,
+      "y": 5.1
+    },
+    "gate": {
+      "x": 7.79,
+      "y": 2.937
+    },
+    "boxes": [
+      {
+        "x": 7.67,
+        "y": 0,
+        "w": 0.24,
+        "h": 2.0869999999999997
+      }
+    ],
+    "allowed": ["Linear"],
+    "required": ["Linear"],
+    "objective": "Cross the gate at (7.79, 2.94) and hit (15, 5.10) using a linear trajectory.",
+    "hint": "Use rise divided by horizontal distance.",
+    "solution": "0.3*u",
+    "starter": "a*u"
+  },
+  {
+    "name": "Vector Narrow Pass",
+    "concept": "Linear targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 16,
+      "y": 6.8
+    },
+    "gate": {
+      "x": 9.0,
+      "y": 4.0
+    },
+    "boxes": [
+      {
+        "x": 8.88,
+        "y": 4.85,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Linear"],
+    "required": ["Linear"],
+    "objective": "Cross the gate at (9.00, 4.00) and hit (16, 6.80) using a linear trajectory.",
+    "hint": "Use rise divided by horizontal distance.",
+    "solution": "0.4*u",
+    "starter": "a*u"
+  },
+  {
+    "name": "Vector Far Beacon",
+    "concept": "Linear targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 17,
+      "y": 8.7
+    },
+    "gate": {
+      "x": 10.33,
+      "y": 5.365
+    },
+    "boxes": [
+      {
+        "x": 10.21,
+        "y": 0,
+        "w": 0.24,
+        "h": 4.515000000000001
+      }
+    ],
+    "allowed": ["Linear"],
+    "required": ["Linear"],
+    "objective": "Cross the gate at (10.33, 5.37) and hit (17, 8.70) using a linear trajectory.",
+    "hint": "Use rise divided by horizontal distance.",
+    "solution": "0.5*u",
+    "starter": "a*u"
+  },
+  {
+    "name": "Gravity Outpost",
+    "concept": "Quadratic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 13,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 5.6899999999999995,
+      "y": 2.279
+    },
+    "boxes": [
+      {
+        "x": 5.569999999999999,
+        "y": 0,
+        "w": 0.24,
+        "h": 1.4289999999999998
+      }
+    ],
+    "allowed": ["Quadratic"],
+    "required": ["Quadratic"],
+    "objective": "Cross the gate at (5.69, 2.28) and hit (13, 1.20) using a quadratic trajectory.",
+    "hint": "Place a second root at the horizontal target distance.",
+    "solution": "0.040*u*(11-u)",
+    "starter": "a*u*(18-u)"
+  },
+  {
+    "name": "Gravity Switchback",
+    "concept": "Quadratic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 14,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 6.68,
+      "y": 2.7416
+    },
+    "boxes": [
+      {
+        "x": 6.56,
+        "y": 3.5916,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Quadratic"],
+    "required": ["Quadratic"],
+    "objective": "Cross the gate at (6.68, 2.74) and hit (14, 1.20) using a quadratic trajectory.",
+    "hint": "Place a second root at the horizontal target distance.",
+    "solution": "0.045*u*(12-u)",
+    "starter": "a*u*(18-u)"
+  },
+  {
+    "name": "Gravity Overhang",
+    "concept": "Quadratic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 15,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 7.79,
+      "y": 3.2873
+    },
+    "boxes": [
+      {
+        "x": 7.67,
+        "y": 0,
+        "w": 0.24,
+        "h": 2.4373
+      }
+    ],
+    "allowed": ["Quadratic"],
+    "required": ["Quadratic"],
+    "objective": "Cross the gate at (7.79, 3.29) and hit (15, 1.20) using a quadratic trajectory.",
+    "hint": "Place a second root at the horizontal target distance.",
+    "solution": "0.050*u*(13-u)",
+    "starter": "a*u*(18-u)"
+  },
+  {
+    "name": "Gravity Narrow Pass",
+    "concept": "Quadratic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 16,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 9.0,
+      "y": 3.895
+    },
+    "boxes": [
+      {
+        "x": 8.88,
+        "y": 4.745,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Quadratic"],
+    "required": ["Quadratic"],
+    "objective": "Cross the gate at (9.00, 3.90) and hit (16, 1.20) using a quadratic trajectory.",
+    "hint": "Place a second root at the horizontal target distance.",
+    "solution": "0.055*u*(14-u)",
+    "starter": "a*u*(18-u)"
+  },
+  {
+    "name": "Gravity Far Beacon",
+    "concept": "Quadratic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 17,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 10.33,
+      "y": 4.5337
+    },
+    "boxes": [
+      {
+        "x": 10.21,
+        "y": 0,
+        "w": 0.24,
+        "h": 3.6836999999999995
+      }
+    ],
+    "allowed": ["Quadratic"],
+    "required": ["Quadratic"],
+    "objective": "Cross the gate at (10.33, 4.53) and hit (17, 1.20) using a quadratic trajectory.",
+    "hint": "Place a second root at the horizontal target distance.",
+    "solution": "0.060*u*(15-u)",
+    "starter": "a*u*(18-u)"
+  },
+  {
+    "name": "Fold Outpost",
+    "concept": "Absolute targeting",
+    "origin": {
+      "x": 2,
+      "y": 4
+    },
+    "target": {
+      "x": 13,
+      "y": 1.9
+    },
+    "gate": {
+      "x": 5.6899999999999995,
+      "y": 6.583
+    },
+    "boxes": [
+      {
+        "x": 5.569999999999999,
+        "y": 0,
+        "w": 0.24,
+        "h": 5.7330000000000005
+      }
+    ],
+    "allowed": ["Absolute"],
+    "required": ["Absolute"],
+    "objective": "Cross the gate at (5.69, 6.58) and hit (13, 1.90) using a absolute trajectory.",
+    "hint": "Reflect an absolute-value curve about its turning point.",
+    "solution": "0.7*(4-abs(u-4))",
+    "starter": "a*(5-abs(u-5))"
+  },
+  {
+    "name": "Fold Switchback",
+    "concept": "Absolute targeting",
+    "origin": {
+      "x": 2,
+      "y": 4
+    },
+    "target": {
+      "x": 14,
+      "y": 2.6
+    },
+    "gate": {
+      "x": 6.68,
+      "y": 7.276
+    },
+    "boxes": [
+      {
+        "x": 6.56,
+        "y": 8.126,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Absolute"],
+    "required": ["Absolute"],
+    "objective": "Cross the gate at (6.68, 7.28) and hit (14, 2.60) using a absolute trajectory.",
+    "hint": "Reflect an absolute-value curve about its turning point.",
+    "solution": "0.7*(5-abs(u-5))",
+    "starter": "a*(5-abs(u-5))"
+  },
+  {
+    "name": "Fold Overhang",
+    "concept": "Absolute targeting",
+    "origin": {
+      "x": 2,
+      "y": 4
+    },
+    "target": {
+      "x": 15,
+      "y": 3.3
+    },
+    "gate": {
+      "x": 7.79,
+      "y": 8.053
+    },
+    "boxes": [
+      {
+        "x": 7.67,
+        "y": 0,
+        "w": 0.24,
+        "h": 7.203000000000001
+      }
+    ],
+    "allowed": ["Absolute"],
+    "required": ["Absolute"],
+    "objective": "Cross the gate at (7.79, 8.05) and hit (15, 3.30) using a absolute trajectory.",
+    "hint": "Reflect an absolute-value curve about its turning point.",
+    "solution": "0.7*(6-abs(u-6))",
+    "starter": "a*(5-abs(u-5))"
+  },
+  {
+    "name": "Fold Narrow Pass",
+    "concept": "Absolute targeting",
+    "origin": {
+      "x": 2,
+      "y": 4
+    },
+    "target": {
+      "x": 16,
+      "y": 4.0
+    },
+    "gate": {
+      "x": 9.0,
+      "y": 8.9
+    },
+    "boxes": [
+      {
+        "x": 8.88,
+        "y": 9.75,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Absolute"],
+    "required": ["Absolute"],
+    "objective": "Cross the gate at (9.00, 8.90) and hit (16, 4.00) using a absolute trajectory.",
+    "hint": "Reflect an absolute-value curve about its turning point.",
+    "solution": "0.7*(7-abs(u-7))",
+    "starter": "a*(5-abs(u-5))"
+  },
+  {
+    "name": "Fold Far Beacon",
+    "concept": "Absolute targeting",
+    "origin": {
+      "x": 2,
+      "y": 4
+    },
+    "target": {
+      "x": 17,
+      "y": 4.7
+    },
+    "gate": {
+      "x": 10.33,
+      "y": 9.369
+    },
+    "boxes": [
+      {
+        "x": 10.21,
+        "y": 0,
+        "w": 0.24,
+        "h": 8.519
+      }
+    ],
+    "allowed": ["Absolute"],
+    "required": ["Absolute"],
+    "objective": "Cross the gate at (10.33, 9.37) and hit (17, 4.70) using a absolute trajectory.",
+    "hint": "Reflect an absolute-value curve about its turning point.",
+    "solution": "0.7*(8-abs(u-8))",
+    "starter": "a*(5-abs(u-5))"
+  },
+  {
+    "name": "Crest Outpost",
+    "concept": "Trig targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 13,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 5.6899999999999995,
+      "y": 2.2867
+    },
+    "boxes": [
+      {
+        "x": 5.569999999999999,
+        "y": 0,
+        "w": 0.24,
+        "h": 1.4367
+      }
+    ],
+    "allowed": ["Trig"],
+    "required": ["Trig"],
+    "objective": "Cross the gate at (5.69, 2.29) and hit (13, 1.20) using a trig trajectory.",
+    "hint": "Scale a sine half-wave to place the crest at the gate.",
+    "solution": "1.25*sin(pi*u/11)",
+    "starter": "a*sin(b*u)"
+  },
+  {
+    "name": "Crest Switchback",
+    "concept": "Trig targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 14,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 6.68,
+      "y": 2.6113
+    },
+    "boxes": [
+      {
+        "x": 6.56,
+        "y": 3.4613,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Trig"],
+    "required": ["Trig"],
+    "objective": "Cross the gate at (6.68, 2.61) and hit (14, 1.20) using a trig trajectory.",
+    "hint": "Scale a sine half-wave to place the crest at the gate.",
+    "solution": "1.5*sin(pi*u/12)",
+    "starter": "a*sin(b*u)"
+  },
+  {
+    "name": "Crest Overhang",
+    "concept": "Trig targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 15,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 7.79,
+      "y": 2.9243
+    },
+    "boxes": [
+      {
+        "x": 7.67,
+        "y": 0,
+        "w": 0.24,
+        "h": 2.0743
+      }
+    ],
+    "allowed": ["Trig"],
+    "required": ["Trig"],
+    "objective": "Cross the gate at (7.79, 2.92) and hit (15, 1.20) using a trig trajectory.",
+    "hint": "Scale a sine half-wave to place the crest at the gate.",
+    "solution": "1.75*sin(pi*u/13)",
+    "starter": "a*sin(b*u)"
+  },
+  {
+    "name": "Crest Narrow Pass",
+    "concept": "Trig targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 16,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 9.0,
+      "y": 3.2
+    },
+    "boxes": [
+      {
+        "x": 8.88,
+        "y": 4.05,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Trig"],
+    "required": ["Trig"],
+    "objective": "Cross the gate at (9.00, 3.20) and hit (16, 1.20) using a trig trajectory.",
+    "hint": "Scale a sine half-wave to place the crest at the gate.",
+    "solution": "2.0*sin(pi*u/14)",
+    "starter": "a*sin(b*u)"
+  },
+  {
+    "name": "Crest Far Beacon",
+    "concept": "Trig targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 17,
+      "y": 1.2
+    },
+    "gate": {
+      "x": 10.33,
+      "y": 3.4161
+    },
+    "boxes": [
+      {
+        "x": 10.21,
+        "y": 0,
+        "w": 0.24,
+        "h": 2.5661
+      }
+    ],
+    "allowed": ["Trig"],
+    "required": ["Trig"],
+    "objective": "Cross the gate at (10.33, 3.42) and hit (17, 1.20) using a trig trajectory.",
+    "hint": "Scale a sine half-wave to place the crest at the gate.",
+    "solution": "2.25*sin(pi*u/15)",
+    "starter": "a*sin(b*u)"
+  },
+  {
+    "name": "Radial Outpost",
+    "concept": "Radical targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 13,
+      "y": 4.0337
+    },
+    "gate": {
+      "x": 5.6899999999999995,
+      "y": 2.5405
+    },
+    "boxes": [
+      {
+        "x": 5.569999999999999,
+        "y": 0,
+        "w": 0.24,
+        "h": 1.6905000000000001
+      }
+    ],
+    "allowed": ["Radical"],
+    "required": ["Radical"],
+    "objective": "Cross the gate at (5.69, 2.54) and hit (13, 4.03) using a radical trajectory.",
+    "hint": "The square-root curve rises quickly near launch and then flattens.",
+    "solution": "1.15*sqrt(u+1)",
+    "starter": "a*sqrt(u+1)"
+  },
+  {
+    "name": "Radial Switchback",
+    "concept": "Radical targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 14,
+      "y": 4.5872
+    },
+    "gate": {
+      "x": 6.68,
+      "y": 2.9983
+    },
+    "boxes": [
+      {
+        "x": 6.56,
+        "y": 3.8483,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Radical"],
+    "required": ["Radical"],
+    "objective": "Cross the gate at (6.68, 3.00) and hit (14, 4.59) using a radical trajectory.",
+    "hint": "The square-root curve rises quickly near launch and then flattens.",
+    "solution": "1.3*sqrt(u+1)",
+    "starter": "a*sqrt(u+1)"
+  },
+  {
+    "name": "Radial Overhang",
+    "concept": "Radical targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 15,
+      "y": 5.1754
+    },
+    "gate": {
+      "x": 7.79,
+      "y": 3.5284
+    },
+    "boxes": [
+      {
+        "x": 7.67,
+        "y": 0,
+        "w": 0.24,
+        "h": 2.6784
+      }
+    ],
+    "allowed": ["Radical"],
+    "required": ["Radical"],
+    "objective": "Cross the gate at (7.79, 3.53) and hit (15, 5.18) using a radical trajectory.",
+    "hint": "The square-root curve rises quickly near launch and then flattens.",
+    "solution": "1.45*sqrt(u+1)",
+    "starter": "a*sqrt(u+1)"
+  },
+  {
+    "name": "Radial Narrow Pass",
+    "concept": "Radical targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 16,
+      "y": 5.7968
+    },
+    "gate": {
+      "x": 9.0,
+      "y": 4.1255
+    },
+    "boxes": [
+      {
+        "x": 8.88,
+        "y": 4.975499999999999,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Radical"],
+    "required": ["Radical"],
+    "objective": "Cross the gate at (9.00, 4.13) and hit (16, 5.80) using a radical trajectory.",
+    "hint": "The square-root curve rises quickly near launch and then flattens.",
+    "solution": "1.6*sqrt(u+1)",
+    "starter": "a*sqrt(u+1)"
+  },
+  {
+    "name": "Radial Far Beacon",
+    "concept": "Radical targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 17,
+      "y": 6.45
+    },
+    "gate": {
+      "x": 10.33,
+      "y": 4.7954
+    },
+    "boxes": [
+      {
+        "x": 10.21,
+        "y": 0,
+        "w": 0.24,
+        "h": 3.9454
+      }
+    ],
+    "allowed": ["Radical"],
+    "required": ["Radical"],
+    "objective": "Cross the gate at (10.33, 4.80) and hit (17, 6.45) using a radical trajectory.",
+    "hint": "The square-root curve rises quickly near launch and then flattens.",
+    "solution": "1.75*sqrt(u+1)",
+    "starter": "a*sqrt(u+1)"
+  },
+  {
+    "name": "Echo Outpost",
+    "concept": "Logarithmic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 13,
+      "y": 4.3061
+    },
+    "gate": {
+      "x": 5.6899999999999995,
+      "y": 3.1318
+    },
+    "boxes": [
+      {
+        "x": 5.569999999999999,
+        "y": 0,
+        "w": 0.24,
+        "h": 2.2818
+      }
+    ],
+    "allowed": ["Logarithmic"],
+    "required": ["Logarithmic"],
+    "objective": "Cross the gate at (5.69, 3.13) and hit (13, 4.31) using a logarithmic trajectory.",
+    "hint": "The logarithm grows slowly toward the far beacon.",
+    "solution": "1.25*ln(u+1)",
+    "starter": "a*ln(u+1)"
+  },
+  {
+    "name": "Echo Switchback",
+    "concept": "Logarithmic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 14,
+      "y": 5.0474
+    },
+    "gate": {
+      "x": 6.68,
+      "y": 3.8054
+    },
+    "boxes": [
+      {
+        "x": 6.56,
+        "y": 4.6554,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Logarithmic"],
+    "required": ["Logarithmic"],
+    "objective": "Cross the gate at (6.68, 3.81) and hit (14, 5.05) using a logarithmic trajectory.",
+    "hint": "The logarithm grows slowly toward the far beacon.",
+    "solution": "1.5*ln(u+1)",
+    "starter": "a*ln(u+1)"
+  },
+  {
+    "name": "Echo Overhang",
+    "concept": "Logarithmic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 15,
+      "y": 5.8184
+    },
+    "gate": {
+      "x": 7.79,
+      "y": 4.552
+    },
+    "boxes": [
+      {
+        "x": 7.67,
+        "y": 0,
+        "w": 0.24,
+        "h": 3.7019999999999995
+      }
+    ],
+    "allowed": ["Logarithmic"],
+    "required": ["Logarithmic"],
+    "objective": "Cross the gate at (7.79, 4.55) and hit (15, 5.82) using a logarithmic trajectory.",
+    "hint": "The logarithm grows slowly toward the far beacon.",
+    "solution": "1.75*ln(u+1)",
+    "starter": "a*ln(u+1)"
+  },
+  {
+    "name": "Echo Narrow Pass",
+    "concept": "Logarithmic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 16,
+      "y": 6.6161
+    },
+    "gate": {
+      "x": 9.0,
+      "y": 5.3589
+    },
+    "boxes": [
+      {
+        "x": 8.88,
+        "y": 6.2089,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Logarithmic"],
+    "required": ["Logarithmic"],
+    "objective": "Cross the gate at (9.00, 5.36) and hit (16, 6.62) using a logarithmic trajectory.",
+    "hint": "The logarithm grows slowly toward the far beacon.",
+    "solution": "2.0*ln(u+1)",
+    "starter": "a*ln(u+1)"
+  },
+  {
+    "name": "Echo Far Beacon",
+    "concept": "Logarithmic targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 17,
+      "y": 7.4383
+    },
+    "gate": {
+      "x": 10.33,
+      "y": 6.2248
+    },
+    "boxes": [
+      {
+        "x": 10.21,
+        "y": 0,
+        "w": 0.24,
+        "h": 5.3748000000000005
+      }
+    ],
+    "allowed": ["Logarithmic"],
+    "required": ["Logarithmic"],
+    "objective": "Cross the gate at (10.33, 6.22) and hit (17, 7.44) using a logarithmic trajectory.",
+    "hint": "The logarithm grows slowly toward the far beacon.",
+    "solution": "2.25*ln(u+1)",
+    "starter": "a*ln(u+1)"
+  },
+  {
+    "name": "Surge Outpost",
+    "concept": "Exponential targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 13,
+      "y": 2.072
+    },
+    "gate": {
+      "x": 5.6899999999999995,
+      "y": 1.4341
+    },
+    "boxes": [
+      {
+        "x": 5.569999999999999,
+        "y": 0,
+        "w": 0.24,
+        "h": 0.5841
+      }
+    ],
+    "allowed": ["Exponential"],
+    "required": ["Exponential"],
+    "objective": "Cross the gate at (5.69, 1.43) and hit (13, 2.07) using a exponential trajectory.",
+    "hint": "Change the growth rate inside the exponent.",
+    "solution": "exp(0.057*u)",
+    "starter": "exp(a*u)"
+  },
+  {
+    "name": "Surge Switchback",
+    "concept": "Exponential targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 14,
+      "y": 2.3555
+    },
+    "gate": {
+      "x": 6.68,
+      "y": 1.5492
+    },
+    "boxes": [
+      {
+        "x": 6.56,
+        "y": 2.3992,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Exponential"],
+    "required": ["Exponential"],
+    "objective": "Cross the gate at (6.68, 1.55) and hit (14, 2.36) using a exponential trajectory.",
+    "hint": "Change the growth rate inside the exponent.",
+    "solution": "exp(0.064*u)",
+    "starter": "exp(a*u)"
+  },
+  {
+    "name": "Surge Overhang",
+    "concept": "Exponential targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 15,
+      "y": 2.7168
+    },
+    "gate": {
+      "x": 7.79,
+      "y": 1.7085
+    },
+    "boxes": [
+      {
+        "x": 7.67,
+        "y": 0,
+        "w": 0.24,
+        "h": 0.8584999999999999
+      }
+    ],
+    "allowed": ["Exponential"],
+    "required": ["Exponential"],
+    "objective": "Cross the gate at (7.79, 1.71) and hit (15, 2.72) using a exponential trajectory.",
+    "hint": "Change the growth rate inside the exponent.",
+    "solution": "exp(0.071*u)",
+    "starter": "exp(a*u)"
+  },
+  {
+    "name": "Surge Narrow Pass",
+    "concept": "Exponential targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 16,
+      "y": 3.1802
+    },
+    "gate": {
+      "x": 9.0,
+      "y": 1.9263
+    },
+    "boxes": [
+      {
+        "x": 8.88,
+        "y": 2.7763,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Exponential"],
+    "required": ["Exponential"],
+    "objective": "Cross the gate at (9.00, 1.93) and hit (16, 3.18) using a exponential trajectory.",
+    "hint": "Change the growth rate inside the exponent.",
+    "solution": "exp(0.078*u)",
+    "starter": "exp(a*u)"
+  },
+  {
+    "name": "Surge Far Beacon",
+    "concept": "Exponential targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 17,
+      "y": 3.7787
+    },
+    "gate": {
+      "x": 10.33,
+      "y": 2.23
+    },
+    "boxes": [
+      {
+        "x": 10.21,
+        "y": 0,
+        "w": 0.24,
+        "h": 1.38
+      }
+    ],
+    "allowed": ["Exponential"],
+    "required": ["Exponential"],
+    "objective": "Cross the gate at (10.33, 2.23) and hit (17, 3.78) using a exponential trajectory.",
+    "hint": "Change the growth rate inside the exponent.",
+    "solution": "exp(0.085*u)",
+    "starter": "exp(a*u)"
+  },
+  {
+    "name": "Relay Outpost",
+    "concept": "Rational targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 13,
+      "y": 5.1286
+    },
+    "gate": {
+      "x": 5.6899999999999995,
+      "y": 3.9578
+    },
+    "boxes": [
+      {
+        "x": 5.569999999999999,
+        "y": 0,
+        "w": 0.24,
+        "h": 3.1078
+      }
+    ],
+    "allowed": ["Rational"],
+    "required": ["Rational"],
+    "objective": "Cross the gate at (5.69, 3.96) and hit (13, 5.13) using a rational trajectory.",
+    "hint": "A horizontal asymptote sets the height ceiling.",
+    "solution": "5*u/(u+3)",
+    "starter": "a*u/(u+3)"
+  },
+  {
+    "name": "Relay Switchback",
+    "concept": "Rational targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 14,
+      "y": 6.0
+    },
+    "gate": {
+      "x": 6.68,
+      "y": 4.8563
+    },
+    "boxes": [
+      {
+        "x": 6.56,
+        "y": 5.7063,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Rational"],
+    "required": ["Rational"],
+    "objective": "Cross the gate at (6.68, 4.86) and hit (14, 6.00) using a rational trajectory.",
+    "hint": "A horizontal asymptote sets the height ceiling.",
+    "solution": "6*u/(u+3)",
+    "starter": "a*u/(u+3)"
+  },
+  {
+    "name": "Relay Overhang",
+    "concept": "Rational targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 15,
+      "y": 6.8875
+    },
+    "gate": {
+      "x": 7.79,
+      "y": 5.8109
+    },
+    "boxes": [
+      {
+        "x": 7.67,
+        "y": 0,
+        "w": 0.24,
+        "h": 4.9609000000000005
+      }
+    ],
+    "allowed": ["Rational"],
+    "required": ["Rational"],
+    "objective": "Cross the gate at (7.79, 5.81) and hit (15, 6.89) using a rational trajectory.",
+    "hint": "A horizontal asymptote sets the height ceiling.",
+    "solution": "7*u/(u+3)",
+    "starter": "a*u/(u+3)"
+  },
+  {
+    "name": "Relay Narrow Pass",
+    "concept": "Rational targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 16,
+      "y": 7.7882
+    },
+    "gate": {
+      "x": 9.0,
+      "y": 6.8
+    },
+    "boxes": [
+      {
+        "x": 8.88,
+        "y": 7.6499999999999995,
+        "w": 0.24,
+        "h": 1.3
+      }
+    ],
+    "allowed": ["Rational"],
+    "required": ["Rational"],
+    "objective": "Cross the gate at (9.00, 6.80) and hit (16, 7.79) using a rational trajectory.",
+    "hint": "A horizontal asymptote sets the height ceiling.",
+    "solution": "8*u/(u+3)",
+    "starter": "a*u/(u+3)"
+  },
+  {
+    "name": "Relay Far Beacon",
+    "concept": "Rational targeting",
+    "origin": {
+      "x": 2,
+      "y": 1.2
+    },
+    "target": {
+      "x": 17,
+      "y": 8.7
+    },
+    "gate": {
+      "x": 10.33,
+      "y": 7.8169
+    },
+    "boxes": [
+      {
+        "x": 10.21,
+        "y": 0,
+        "w": 0.24,
+        "h": 6.966900000000001
+      }
+    ],
+    "allowed": ["Rational"],
+    "required": ["Rational"],
+    "objective": "Cross the gate at (10.33, 7.82) and hit (17, 8.70) using a rational trajectory.",
+    "hint": "A horizontal asymptote sets the height ceiling.",
+    "solution": "9*u/(u+3)",
+    "starter": "a*u/(u+3)"
+  }
+]

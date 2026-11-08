@@ -1,0 +1,11 @@
+project_id = "function-wars"
+[functions.fw-duel]
+verify_jwt = false
+
+[auth]
+site_url = "https://stevenvrp.github.io/FunctionWars/"
+additional_redirect_urls = ["https://stevenvrp.github.io/FunctionWars/"]
+
+[auth.email.template.confirmation]
+subject = "Confirm your Function Wars pilot account"
+content_path = "./supabase/templates/confirmation.html"
