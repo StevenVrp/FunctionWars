@@ -9,7 +9,7 @@ export const tanks = {
     special: {
       id: 'cycle',
       name: 'Rapid cycle',
-      cost: 4,
+      cost: 5,
       help: 'Clear all weapon cooldowns. Your active projectile must still land.',
     },
   },
@@ -24,7 +24,7 @@ export const tanks = {
       id: 'breach',
       name: 'Breach charge',
       cost: 3,
-      help: 'Your next shot can destroy cover at any tier.',
+      help: 'Your next shot shatters the first barrier it hits and stops there.',
     },
   },
   warden: {
@@ -38,7 +38,7 @@ export const tanks = {
       id: 'repair',
       name: 'Field repair',
       cost: 4,
-      help: 'Repair up to 16 lost HP.',
+      help: 'Restore up to 12 HP, once per refill.',
     },
   },
 } as const

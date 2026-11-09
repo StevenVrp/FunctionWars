@@ -7,44 +7,44 @@ export const powers = [
   {
     id: 'shift',
     name: 'Terraform',
-    cost: 4,
-    help: 'Cycle to the next landscape and its barriers.',
+    cost: 6,
+    help: 'Switch terrain and clear all installed barriers.',
   },
   {
     id: 'wall',
     name: 'Drop barrier',
     cost: 3,
-    help: 'Place cover ahead of your tank.',
+    help: 'Choose a ground position within 9 units. Keep up to 3 barriers.',
   },
   {
     id: 'boost',
     name: 'Overcharge',
-    cost: 3,
-    help: 'Add 10 damage to your next hit.',
+    cost: 2,
+    help: 'Your next shot deals 8 extra damage if it hits. A miss uses the charge.',
   },
   {
     id: 'nuke',
     name: 'Nuclear strike',
     cost: 9,
-    help: 'Deal 18 damage and erase nearby cover.',
+    help: 'Deal 16 Tier IV damage and clear cover within 3 units of the enemy. Ward IV blocks the damage.',
   },
   {
     id: 'bank',
     name: 'Capacitor',
     cost: 2,
-    help: 'Carry unused energy into the next refill (cap 20).',
+    help: 'Carry up to 5 unspent energy into the next refill (15 total).',
   },
   {
     id: 'auto',
     name: 'Sentry tank',
-    cost: 5,
-    help: 'At the next refill, deal a guaranteed Tier I center hit. Tier I shields absorb it.',
+    cost: 4,
+    help: 'At the next refill, fire a level Tier I shot for 12 damage. Terrain, barriers and Ward I can stop it.',
   },
   ...[0, 1, 2, 3].map((t) => ({
     id: 'shield' + t,
     name: 'Ward ' + ['I', 'II', 'III', 'IV'][t],
-    cost: t + 2,
-    help: 'Absorb one hit of this exact tier.',
+    cost: t < 2 ? 2 : 3,
+    help: 'Absorb one hit of this tier. Equipping this ward replaces your current ward.',
   })),
 ]
 export interface Setup {
@@ -66,6 +66,7 @@ export interface Pilot extends Point {
   boost: boolean
   bank: boolean
   auto: boolean
+  lastRepairPulse?: number
   nextMove: number
 }
 interface Flight {
@@ -91,7 +92,7 @@ interface Event {
 export interface Live {
   setup: Setup
   map: number
-  boxes: (Box & { id: number })[]
+  boxes: (Box & { id: number; owner?: number })[]
   nextBox: number
   players: Pilot[]
   flights: Flight[]
@@ -105,7 +106,7 @@ export interface Live {
 export type Action =
   | { type: 'fire'; source: string; parameters: Parameters }
   | { type: 'move'; dx: number }
-  | { type: 'power'; id: string }
+  | { type: 'power'; id: string; x?: number }
   | { type: 'forfeit' }
 export function startLive(setup: Setup, names: string[], now: number): Live {
   if (
@@ -211,6 +212,40 @@ function retarget(s: Live, now: number) {
     f.end = Math.max(now, f.from + f.hit.u / 0.012)
   }
 }
+export const barrierLimit = 3
+export const barrierCost = powers.find((power) => power.id === 'wall')!.cost
+
+export function planBarrier(s: Live, actor: number, center: number) {
+  const w = 0.9,
+    h = 2.4,
+    x = center - w / 2
+  const y = height(maps[s.map].land, center)
+  const box = { x, y, w, h }
+  let reason = ''
+  if (
+    !Number.isFinite(center) ||
+    center < 1 ||
+    center > 23 ||
+    !Number.isInteger(center * 2)
+  )
+    reason = 'Choose a half-unit position between 1 and 23.'
+  else if (Math.abs(center - s.players[actor].x) > 9)
+    reason = 'Choose a position within 9 units of your tank.'
+  else if (s.players.some((pilot) => Math.abs(center - pilot.x) < 1.5))
+    reason = 'Leave at least 1.5 units between a barrier and either tank.'
+  else if (s.boxes.filter((b) => b.owner === actor).length >= barrierLimit)
+    reason = 'All three barriers are deployed.'
+  else if (
+    s.boxes.length >= 18 ||
+    s.boxes.some(
+      (b) => b.x < x + w && b.x + b.w > x && b.y < y + h && b.y + b.h > y,
+    )
+  )
+    reason = 'That position is occupied.'
+  return { box, reason }
+}
+
+const sentryShot = compile('0')
 // Process events by absolute time, including ties, before accepting the next action.
 export function advance(input: Live, now: number): Live {
   let s = input
@@ -234,7 +269,7 @@ export function advance(input: Live, now: number): Live {
         )
       else if ((f.w.tier === 3 || f.breach) && f.boxId !== undefined) {
         s.boxes = s.boxes.filter((b) => b.id !== f.boxId)
-        event(s, t, f.actor, 'shatter', 'Tier IV shattered cover', f.hit.point)
+        event(s, t, f.actor, 'shatter', 'Shot shattered cover', f.hit.point)
       } else
         event(s, t, f.actor, 'impact', 'Impact · ' + f.hit.kind, f.hit.point)
     }
@@ -243,12 +278,30 @@ export function advance(input: Live, now: number): Live {
     if (t === s.nextPulse) {
       s.nextPulse += s.setup.pulse * 1000
       for (const [i, p] of s.players.entries()) {
-        p.energy = Math.min(20, 10 + (p.bank ? p.energy : 0))
+        p.energy = 10 + (p.bank ? Math.min(5, p.energy) : 0)
         p.bank = false
         if (p.auto) {
           p.auto = false
-          event(s, t, i, 'sentry', 'Sentry locked on', s.players[1 - i])
-          hurt(s, i, 0, 21, t)
+          const dir = i ? -1 : 1
+          const x = Math.max(0.6, Math.min(23.4, p.x - dir * 1.45))
+          const land = maps[s.map].land
+          const hit = resolvePath(
+            sentryShot,
+            { x, y: height(land, x) + 1 },
+            dir,
+            [s.players[1 - i]],
+            s.boxes,
+            land,
+          )
+          event(
+            s,
+            t,
+            i,
+            'sentry',
+            hit.kind === 'target' ? 'Sentry hit' : 'Sentry shot blocked',
+            hit.point,
+          )
+          if (hit.kind === 'target') hurt(s, i, 0, 12, t)
         }
       }
       event(s, t, 0, 'pulse', 'Energy replenished')
@@ -291,7 +344,7 @@ export function act(input: Live, actor: number, a: Action, now: number): Live {
       from: now,
       end: now + Math.max(100, (hit.u / 12) * 1000),
       boxId: impactedBox(s, hit),
-      bonus: p.boost ? 10 : 0,
+      bonus: p.boost ? 8 : 0,
       breach: p.breach,
     })
     p.boost = false
@@ -356,7 +409,10 @@ export function act(input: Live, actor: number, a: Action, now: number): Live {
     p.breach = true
   } else if (a.id === 'repair') {
     if (p.hp === 100) throw Error('Hull is at full health.')
-    p.hp = Math.min(100, p.hp + 16)
+    if (p.lastRepairPulse === s.nextPulse)
+      throw Error('Repair recharges at the next refill.')
+    p.hp = Math.min(100, p.hp + 12)
+    p.lastRepairPulse = s.nextPulse
   } else if (a.id === 'shift') {
     s.map = (s.map + 1) % maps.length
     const n = maps[s.map]
@@ -372,22 +428,15 @@ export function act(input: Live, actor: number, a: Action, now: number): Live {
       )
     }
   } else if (a.id === 'wall') {
-    const x = p.x + dir * 3 - 0.45,
-      y = height(m.land, x + 0.45)
-    if (
-      x < 0 ||
-      x + 1 > 24 ||
-      Math.abs(x + 0.45 - enemy.x) < 1.5 ||
-      s.boxes.length >= 18 ||
-      s.boxes.some(
-        (b) => b.x < x + 0.9 && b.x + b.w > x && b.y < y + 2.4 && b.y + b.h > y,
-      )
-    )
-      throw Error('No room for a barrier.')
-    s.boxes.push({ x, y, w: 0.9, h: 2.4, id: s.nextBox++ })
+    // Clients predating the placement control still send a wall with no coordinate.
+    const center = a.x === undefined ? p.x + dir * 3 : a.x
+    const { box, reason } = planBarrier(s, actor, center)
+    if (reason) throw Error(reason)
+    s.boxes.push({ ...box, owner: actor, id: s.nextBox++ })
   } else if (a.id === 'nuke') {
-    hurt(s, actor, 3, 18, now)
-    s.boxes = s.boxes.filter((b) => Math.abs(b.x + b.w / 2 - enemy.x) > 5)
+    if (s.setup.bans.includes(3)) throw Error('Tier IV is forbidden.')
+    hurt(s, actor, 3, 16, now)
+    s.boxes = s.boxes.filter((b) => Math.abs(b.x + b.w / 2 - enemy.x) > 3)
   } else if (a.id === 'bank') p.bank = true
   else if (a.id === 'boost') p.boost = true
   else if (a.id === 'auto') {

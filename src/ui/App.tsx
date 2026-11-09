@@ -187,7 +187,7 @@ function Manual() {
       </table>
       <p>
         Both pilots can fire at any time. Each refill restores 10 energy; a
-        Capacitor carries unused energy across one refill. Center hits deal 1.5×
+        Capacitor carries up to 5 spare energy into the next refill. Use the Equipment map to place up to three barriers per pilot. Center hits deal 1.5×
         damage. Tier IV shots shatter the barrier they hit. After three minutes,
         remaining health decides the match.
       </p>

@@ -32,7 +32,9 @@ Open the local address printed by Vite. Offline modes need no account. The onlin
 - Both pilots can aim and fire independently. For same-keyboard play use Shift+1 and Shift+2 to fire the corresponding pilot's prepared equation. Each pilot may have one shot in flight. A move costs 2 energy. Moving and dropping cover can alter the remaining path of a shot already in flight.
 - Both start at 100 HP and 10 energy. Every 5, 8, 10, 15, or 20 seconds (host choice) energy resets to 10. At three minutes the higher HP wins; an exact tie draws. Simultaneous lethal hits also draw.
 - Choose an orbital rift, glacial shelf, volcanic caldera, forest canopy, orbital shipyard, or flat open range. Tier IV bursts destroy the obstacle they hit. Ground slopes are permanent. Forbidden presets are checked by canonical expression, including direct entry.
-- Open the Power bay on either pilot's panel. Terraform (4) changes maps; Drop barrier (3) adds cover ahead; Overcharge (3) adds 10 damage to the next shot if it hits; Nuclear strike (9) deals 18 damage and clears cover near the enemy. Capacitor (2) carries the remaining energy into the next refill, capped at 20. Sentry tank (5) fires one guaranteed 21-damage Tier I hit on the next refill; Tier I bans disable it. Wards I through IV (2/3/4/5) each absorb one hit of the matching tier. A new ward replaces the old ward. Nuclear strike counts as Tier IV for defense.
+- In **Equipment**, tap the placement map or use the slider to pick a barrier center in half-unit steps. Install costs 3 energy. Each pilot can have three barriers within a deployment range of 9 units at placement time. Leave 1.5 units around both tanks and avoid overlapping cover. Barriers can intercept shots already in flight.
+- Terraform (6) switches maps and clears installed barriers. Overcharge (2) adds 8 damage if your next shot hits. Nuclear strike (9) deals 16 Tier IV damage and clears cover within 3 units of the enemy. A Tier IV ban disables the strike.
+- Capacitor (2) carries up to 5 spare energy into the next refill. Sentry tank (4) fires a level Tier I shot for 12 damage at the next refill. Cover, terrain, and Ward I can stop it. A Tier I ban disables the sentry. Wards I through IV cost 2, 2, 3, and 3 energy and absorb one matching hit. A new ward replaces the old ward.
 - A mission awards one star for completion, two within par, and three within par with a closest-center distance of at most 0.25 units. All missions can be selected immediately.
 - Settings control volume, mute, animation speed, reduced motion, and the plot grid. Sound effects are synthesized with Web Audio. The field manual is accessible from the title screen and footer.
 - The weapon library supports rename, delete, import, export, and opening a design in the sandbox. Saved weapons and best mission stars persist in this browser. Storage is specific to the browser and origin.
@@ -43,9 +45,9 @@ Each pilot selects a chassis before the match. The host and guest make independe
 
 | Tank | Shot damage | Reload time | Exclusive equipment |
 | --- | --- | --- | --- |
-| Vector · cyan recon | 85% | 70% | Rapid cycle clears weapon cooldowns for 4 energy. |
+| Vector · cyan recon | 85% | 70% | Rapid cycle clears weapon cooldowns for 5 energy. |
 | Bastion · amber siege | 125% | 130% | Breach charge lets the next shot of any tier destroy a barrier for 3 energy. |
-| Warden · violet support | 100% | 100% | Field repair restores up to 16 HP for 4 energy. |
+| Warden · violet support | 100% | 100% | Field repair restores up to 12 HP for 4 energy, once per refill. |
 
 Use **Targeting** to edit the equation and **Equipment** to buy a power. Drive and fire controls remain accessible on both panels. The sentry rolls into position behind its pilot and fires its green tracer at the energy refill. Older match states use Warden's neutral modifiers.
 

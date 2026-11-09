@@ -1,3 +1,4 @@
+import { BarrierPlanner } from './BarrierPlanner'
 import { BattleScene } from './BattleScene'
 import { tanks, selectTank, type TankId } from '../combat/tanks'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -675,14 +676,22 @@ function Station({
         </Editor>
       ) : (
         <div className="equipment-list">
-          {[tank.special, ...powers].map((q) => (
+          <BarrierPlanner state={state} actor={i} locked={locked}
+            install={x => command(i, { type: 'power', id: 'wall', x })}/>
+          {[tank.special, ...powers.filter(power => power.id !== 'wall')].map((q) => (
             <button
               key={q.id}
               className={q === tank.special ? 'signature' : ''}
               disabled={
                 locked ||
                 p.energy < q.cost ||
-                (q.id === 'auto' && state.setup.bans.includes(0))
+                (q.id === 'auto' && (p.auto || state.setup.bans.includes(0))) ||
+                (q.id === 'nuke' && state.setup.bans.includes(3)) ||
+                (q.id === 'repair' && (p.hp === 100 || p.lastRepairPulse === state.nextPulse)) ||
+                (q.id === 'bank' && p.bank) || (q.id === 'boost' && p.boost) ||
+                (q.id === 'breach' && !!p.breach) ||
+                (q.id === 'cycle' && !p.ready.some(time => time > now)) ||
+                q.id === 'shield' + p.shield
               }
               onClick={() => command(i, { type: 'power', id: q.id })}
             >

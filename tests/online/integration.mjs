@@ -144,6 +144,22 @@ try {
   assert.equal(snapshot.state.flights.length, 2)
   const retry = await send(a, 'a1')
   assert.equal(retry.state.players[0].energy, 8)
+  const wall = (nonce, x) =>
+    call(a, {
+      op: 'act',
+      code,
+      nonce,
+      action: { type: 'power', id: 'wall', x },
+    })
+  const installed = await wall('wall1', 6.5)
+  assert.equal(installed.state.boxes.at(-1).x, 6.05)
+  assert.equal((await wall('wall1', 6.5)).state.players[0].energy, 5)
+  assert.equal((await wall('badwall', 22)).status, 400)
+  assert.equal((await wall('wall2', 9)).state.players[0].energy, 2)
+  assert.deepEqual(
+    (await call(b, { op: 'read', code })).state.boxes.map((b) => b.owner),
+    [0, 0],
+  )
   const end = await call(b, {
     op: 'act',
     code,
