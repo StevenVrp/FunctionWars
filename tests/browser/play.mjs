@@ -124,6 +124,29 @@ try {
   await page.getByRole('spinbutton', { name: 'b value' }).fill('0.35')
   await waitValid()
   await page.getByRole('button', { name: /Pin overlay/ }).click()
+  const pin = page.getByRole('button', { name: /Pin overlay/ })
+  const coefficient = page.getByRole('spinbutton', { name: 'a value' })
+  await coefficient.fill('4')
+  await waitValid()
+  await pin.click()
+  await button('Remove Curve A').click()
+  await coefficient.fill('5')
+  await waitValid()
+  await pin.click()
+  check(
+    (await button('Restore Curve A').count()) === 1 &&
+      (await button('Restore Curve B').count()) === 1,
+    'Removing a pin frees only its own curve style',
+  )
+  await input.fill('u')
+  await waitValid()
+  await button('Restore Curve B').click()
+  await waitValid()
+  check(
+    (await input.inputValue()) === 'a*sin(b*u)' &&
+      (await coefficient.inputValue()) === '4',
+    'Restoring a curve restores its expression and coefficients',
+  )
   await page.getByRole('button', { name: 'Zoom in' }).click()
   await button('Reset view').click()
   await screenshot(page, '02-function-sandbox')

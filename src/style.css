@@ -604,8 +604,35 @@ small {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 18px;
+  gap: 12px;
+  padding: 10px 18px;
+  border-top: 1px solid var(--edge);
 }
+.overlay-info {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+.overlay-info strong,
+.overlay-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.overlay-info code {
+  overflow-wrap: anywhere;
+  color: #e3deeb;
+}
+.overlay-info small {
+  color: #c4b5d5;
+}
+.overlay-info small:empty {
+  display: none;
+}
+.overlay-actions button {
+  min-height: 34px;
+}
+
 .editor {
   padding: 17px 18px;
 }

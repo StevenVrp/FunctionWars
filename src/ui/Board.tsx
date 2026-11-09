@@ -13,7 +13,12 @@ export interface GraphShot {
   dir: number
   u: number
 }
-export type Overlay = { w: Weapon; color: string }
+export type Overlay = {
+  w: Weapon
+  label: string
+  color: string
+  dash?: string
+}
 const W = 960,
   H = 560
 export function Board({
@@ -266,12 +271,13 @@ export function Board({
             />
           </g>
         ))}
-        {overlayPaths.map((o, i) => (
+        {overlayPaths.map((o) => (
           <path
-            key={i}
+            key={o.label}
             d={o.path}
             fill="none"
             stroke={o.color}
+            strokeDasharray={o.dash}
             strokeWidth="2.5"
           />
         ))}

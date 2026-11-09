@@ -7,6 +7,12 @@ import type { Point } from '../math/weapon'
 import { useFlight } from './flight'
 import type { Projectile } from '../combat/state'
 import { resolvePath } from '../combat/collision'
+const curveStyles = [
+  { label: 'Curve A', color: '#69eadb', dash: undefined },
+  { label: 'Curve B', color: '#ffc186', dash: '8 4' },
+  { label: 'Curve C', color: '#ee89bd', dash: '2 4' },
+]
+
 export function Sandbox({
   settings,
   save,
@@ -90,14 +96,14 @@ export function Sandbox({
               className="secondary"
               disabled={!ready || overlays.length >= 3}
               onClick={() => {
-                if (ed.weapon)
-                  setOverlays([
-                    ...overlays,
-                    {
-                      w: ed.weapon,
-                      color: ['#69eadb', '#ffc186', '#ee89bd'][overlays.length],
-                    },
-                  ])
+                const style = curveStyles.find(
+                  (candidate) =>
+                    !overlays.some((curve) => curve.label === candidate.label),
+                )
+                if (ed.weapon && style) {
+                  setOverlays([...overlays, { w: ed.weapon, ...style }])
+                  setStatus(style.label + ' pinned.')
+                }
               }}
             >
               ＋ Pin overlay
@@ -106,15 +112,55 @@ export function Sandbox({
               {overlays.length}/3 overlays · Drag to pan
             </span>
           </div>
-          {overlays.map((o, i) => (
-            <div className="overlay" key={i} style={{ color: o.color }}>
-              <code>{o.w.source}</code>
-              <button
-                aria-label={'Remove overlay ' + (i + 1)}
-                onClick={() => setOverlays(overlays.filter((_, j) => i !== j))}
-              >
-                ×
-              </button>
+          {overlays.map((curve) => (
+            <div
+              className="overlay"
+              key={curve.label}
+              style={{ color: curve.color }}
+            >
+              <div className="overlay-info">
+                <strong>
+                  <svg aria-hidden="true" width="28" height="8">
+                    <path
+                      d="M0 4H28"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeDasharray={curve.dash}
+                    />
+                  </svg>
+                  {curve.label}
+                </strong>
+                <code>{curve.w.source}</code>
+                <small>
+                  {curve.w.controls
+                    .filter((c) => c.start === undefined)
+                    .map((c) => c.label + ' = ' + c.value)
+                    .join(' · ')}
+                </small>
+              </div>
+              <div className="overlay-actions">
+                <button
+                  aria-label={'Restore ' + curve.label}
+                  disabled={!!flight}
+                  onClick={() => {
+                    ed.load(curve.w.source, curve.w.parameters)
+                    setImpact(null)
+                    setStatus(curve.label + ' restored to the editor.')
+                  }}
+                >
+                  Restore
+                </button>
+                <button
+                  aria-label={'Remove ' + curve.label}
+                  onClick={() =>
+                    setOverlays(
+                      overlays.filter((other) => other.label !== curve.label),
+                    )
+                  }
+                >
+                  ×
+                </button>
+              </div>
             </div>
           ))}
           <div className="feedback" role="status">
